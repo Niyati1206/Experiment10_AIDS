@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campaign Dashboard with Google Charts API and D3.js</title>
+  <h1>Experiment no. 10</h1>
+  <!-- Include the Google Charts API library -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script type="text/javascript">
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawCharts);
+
+    // Callback function to draw the charts.
+    function drawCharts() {
+      // Create data for the pie chart (Channel Usage).
+      var pieData = google.visualization.arrayToDataTable([
+        ['Channel', 'Usage'],
+        ['Facebook', 25],
+        ['Instagram', 25],
+        ['Other', 50]
+      ]);
+
+      // Create options for the pie chart.
+      var pieOptions = {
+        title: 'Campaign Channel Usage',
+        pieHole: 0.4
+      };
+
+      // Create data for the bar chart (Target Audience Distribution).
+      var barData = google.visualization.arrayToDataTable([
+        ['Target Audience', 'Count'],
+        ['Women 18-24', 119],
+        ['Men 45-60', 119],
+        ['Other', 788]
+      ]);
+
+      // Create options for the bar chart.
+      var barOptions = {
+        title: 'Target Audience Distribution',
+        hAxis: { title: 'Audience' },
+        vAxis: { title: 'Count' },
+        legend: { position: 'none' }
+      };
+
+      // Create data for the line chart (ROI Over Campaigns).
+      var lineData = google.visualization.arrayToDataTable([
+        ['Campaign', 'ROI'],
+        ['Campaign 1', 5.79],
+        ['Campaign 2', 7.21],
+        ['Campaign 3', 0.43],
+        ['Campaign 4', 0.91]
+      ]);
+
+      // Create options for the line chart.
+      var lineOptions = {
+        title: 'ROI Over Campaigns',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+
+      // Instantiate and draw the pie chart.
+      var pieChart = new google.visualization.PieChart(document.getElementById('pie-chart'));
+      pieChart.draw(pieData, pieOptions);
+
+      // Instantiate and draw the bar chart.
+      var barChart = new google.visualization.BarChart(document.getElementById('bar-chart'));
+      barChart.draw(barData, barOptions);
+
+      // Instantiate and draw the line chart.
+      var lineChart = new google.visualization.LineChart(document.getElementById('line-chart'));
+      lineChart.draw(lineData, lineOptions);
+    }
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 30px;
+    }
+    #charts-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .chart {
+      width: 700px;
+      height: 400px;
+      margin: 12px;
+    }
+    .description {
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Campaign Dashboard</h1>
+  <div id="charts-container">
+    <div class="chart" id="pie-chart"></div>
+    <div class="chart" id="bar-chart"></div>
+    <div class="chart" id="line-chart"></div>
+  </div>
+</body>
+</html>
