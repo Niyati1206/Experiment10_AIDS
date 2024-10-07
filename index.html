@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Dashboard with D3.js</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS if needed -->
+    <script src="script.js" defer></script> <!-- Link to the external JavaScript file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 30px;
+        }
+        #charts-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .chart {
+            width: 700px;
+            height: 400px;
+            margin: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Campaign Dashboard</h1>
+    <div id="charts-container">
+        <div class="chart" id="pie-chart"></div>
+        <div class="chart" id="bar-chart"></div>
+        <div class="chart" id="line-chart"></div>
+        <div class="chart" id="stacked-bar-chart"></div>
+        <div class="chart" id="scatter-plot"></div>
+    </div>
+</body>
+</html>
